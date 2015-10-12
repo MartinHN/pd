@@ -1,0 +1,26 @@
+# -*- Mode: Shell-Script -*-
+#
+# File: gfsm.pc
+# Description: pkg-config data, auto-generated
+
+prefix=/Users/Tintamar/Dev/pd/externals/moocow/gfsm/gfsm/../../extended/build.moo/noinstall
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+PACKAGE=gfsm
+datadir=${prefix}/share
+#docdir=${prefix}/share/doc/${PACKAGE_TARNAME}
+#pkgdocdir=@pkgdocdir@
+
+build_options=DEBUG=0
+cflags= -DPD -I/Users/Tintamar/Dev/pd/pd/src -Wall -W -ggdb -I/Users/Tintamar/Dev/pd/Gem/src -I/sw/include -I/Users/Tintamar/Dev/pd/externals/pdp/include -DMACOSX -DUNIX -Dunix -DDL_OPEN -I/sw/include 
+cppflags=-I${includedir}/gfsm 
+ldadd=-lgfsm  -lz
+
+
+Name: gfsm
+Description: abstract finite state machine library
+Version: 0.0.10-pre8-pd
+Libs: -L${libdir} ${ldadd}
+Cflags: ${cppflags} ${cflags}

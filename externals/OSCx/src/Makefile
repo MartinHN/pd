@@ -20,33 +20,33 @@ EXT=o
 LIBS = -lc -lm
 LIBOSC = ../libOSC/libOSC.a
 
-CFLAGS = -g -O2 -DUNIX -Wall -Wimplicit -Wunused -Wmissing-prototypes -O2 -fPIC -I../libOSC -I../../pd/src -I../../../pd/src -I../src
+CFLAGS = -g -arch i386 -O2 -DUNIX -Wall -Wimplicit -Wunused -Wmissing-prototypes -O3  -I../libOSC -I../../pd/src -I../../../pd/src -I../src
 INCLUDES = -I../libOSC -I../../pd/src -I../../../pd/src -I../src
-LDFLAGS = -Wl,--export-dynamic -shared
+LDFLAGS =  -arch i386 -bundle -bundle_loader ../../../pd/bin/pd -flat_namespace 
 
 prefix=/usr/local
 
 SOURCES = OSC-pattern-match.c OSC.c dumpOSC.c htmsocket.c OSCroute.c sendOSC.c OSC-system-dependent.c
 TARGETS = $(SOURCES:.c=.o)
-EXTS=sendOSC.pd_linux dumpOSC.pd_linux OSCroute.pd_linux
+EXTS=sendOSC.pd_darwin dumpOSC.pd_darwin OSCroute.pd_darwin
 
 # ----------------------- autoconf -----------------------
 
 all: $(EXTS)
 
-lib: OSC.pd_linux
+lib: OSC.pd_darwin
 
-dumpOSC.pd_linux: dumpOSC.o
-	$(CC) $(LDFLAGS) -o dumpOSC.pd_linux $? $(LIBS)
+dumpOSC.pd_darwin: dumpOSC.o
+	$(CC) $(LDFLAGS) -o dumpOSC.pd_darwin $? $(LIBS)
 
-sendOSC.pd_linux: sendOSC.o htmsocket.o OSC-system-dependent.o
-	$(CC) $(LDFLAGS) -o sendOSC.pd_linux $? $(LIBS) $(LIBOSC)
+sendOSC.pd_darwin: sendOSC.o htmsocket.o OSC-system-dependent.o
+	$(CC) $(LDFLAGS) -o sendOSC.pd_darwin $? $(LIBS) $(LIBOSC)
 
-OSCroute.pd_linux: OSCroute.o OSC-pattern-match.o OSC-system-dependent.o
-	$(CC) $(LDFLAGS) -o OSCroute.pd_linux $? $(LIBS)
+OSCroute.pd_darwin: OSCroute.o OSC-pattern-match.o OSC-system-dependent.o
+	$(CC) $(LDFLAGS) -o OSCroute.pd_darwin $? $(LIBS)
 
-OSC.pd_linux: OSC.o sendOSC.o dumpOSC.o OSCroute.o htmsocket.o OSC-pattern-match.o OSC-system-dependent.o
-	$(CC) $(LDFLAGS) -o OSC.pd_linux $? $(LIBS) $(LIBOSC)
+OSC.pd_darwin: OSC.o sendOSC.o dumpOSC.o OSCroute.o htmsocket.o OSC-pattern-match.o OSC-system-dependent.o
+	$(CC) $(LDFLAGS) -o OSC.pd_darwin $? $(LIBS) $(LIBOSC)
 
 $(TARGETS): %.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c -o $*.o $*.c
@@ -59,7 +59,7 @@ install-doc:
 
 install: install-doc
 	@test -d $(prefix)/lib/pd/extra || mkdir -p $(prefix)/lib/pd/extra
-	install -m644 *.pd_linux $(prefix)/lib/pd/extra
+	install -m644 *.pd_darwin $(prefix)/lib/pd/extra
 
 clean:
-	rm -rf *.$(EXT) *.pd_linux
+	rm -rf *.$(EXT) *.pd_darwin

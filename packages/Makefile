@@ -109,7 +109,8 @@ externals:
 # pd
 
 ifeq ($(OS_NAME),darwin)
-  PD_CONFIGURE_FLAGS = --enable-jack
+	PD_CONFIGURE_FLAGS = --disable-tk
+  # PD_CONFIGURE_FLAGS = --enable-jack
 else
   ifeq ($(OS_NAME),linux)
     PD_CONFIGURE_FLAGS = --enable-jack --enable-alsa --enable-fftw
@@ -117,7 +118,7 @@ else
       PD_CONFIGURE_FLAGS +=  --prefix=$(TAR_EM_UP_PREFIX)
     endif
   else
-    PD_CONFIGURE_FLAGS = 
+    PD_CONFIGURE_FLAGS = lala
   endif
 endif
 
@@ -410,61 +411,61 @@ devsymlinks_darwin: devsymlinks_clean
 # this makes /usr/local symlinks to the Tcl/Tk frameworks so that ./configure
 # can find them.
 # headers
-	test -e  /Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tcl.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tcl.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tcl.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tcl.h \
 			/usr/local/include/tcl.h
-	test -e  /Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclDecls.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclDecls.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclDecls.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclDecls.h \
 			/usr/local/include/tclDecls.h
-	test -e  /Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclPlatDecls.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclPlatDecls.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclPlatDecls.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Headers/tclPlatDecls.h \
 			/usr/local/include/tclPlatDecls.h
 # libs
-	test -e  /Library/Frameworks/Tcl.framework/tclConfig.sh && \
-		sudo ln -s /Library/Frameworks/Tcl.framework/tclConfig.sh /usr/local/lib
-	test -e  /Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Tcl && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/tclConfig.sh && \
+		sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/tclConfig.sh /usr/local/lib
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Tcl && \
 		sudo ln -s \
-			/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Tcl \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/Tcl \
 			/usr/local/lib/libtcl$(TCLTK_VERSION).dylib
-	test -e  /Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/libtclstub$(TCLTK_VERSION).a && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/libtclstub$(TCLTK_VERSION).a && \
 		sudo ln -s \
-			/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/libtclstub$(TCLTK_VERSION).a \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tcl.framework/Versions/$(TCLTK_VERSION)/libtclstub$(TCLTK_VERSION).a \
 			/usr/local/lib/libtclstub$(TCLTK_VERSION).a
 	test -e  /usr/local/lib/libtcl$(TCLTK_VERSION).dylib && \
 		sudo ln -s /usr/local/lib/libtcl$(TCLTK_VERSION).dylib /usr/local/lib/libtcl.dylib
 # headers
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tk.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tk.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tk.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tk.h \
 			/usr/local/include/tk.h
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkDecls.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkDecls.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkDecls.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkDecls.h \
 			/usr/local/include/tkDecls.h
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkIntXlibDecls.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkIntXlibDecls.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkIntXlibDecls.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkIntXlibDecls.h \
 			/usr/local/include/tkIntXlibDecls.h
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkMacOSX.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkMacOSX.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkMacOSX.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkMacOSX.h \
 			/usr/local/include/tkMacOSX.h
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkPlatDecls.h && \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkPlatDecls.h && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkPlatDecls.h \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Headers/tkPlatDecls.h \
 			/usr/local/include/tkPlatDecls.h
 # libs
-	test -e  /Library/Frameworks/Tk.framework/tkConfig.sh && \
-		sudo ln -s /Library/Frameworks/Tk.framework/tkConfig.sh /usr/local/lib
-	test -e  /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Tk && \
-		sudo ln -s /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Tk \
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/tkConfig.sh && \
+		sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/tkConfig.sh /usr/local/lib
+	test -e  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Tk && \
+		sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/Tk \
 			/usr/local/lib/libtk$(TCLTK_VERSION).dylib
-	test -e /Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/libtkstub$(TCLTK_VERSION).a && \
+	test -e /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/libtkstub$(TCLTK_VERSION).a && \
 		sudo ln -s \
-			/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/libtkstub$(TCLTK_VERSION).a \
+			/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Tk.framework/Versions/$(TCLTK_VERSION)/libtkstub$(TCLTK_VERSION).a \
 			/usr/local/lib/libtkstub$(TCLTK_VERSION).a
 	test -e  /usr/local/lib/libtk$(TCLTK_VERSION).dylib && \
 		sudo ln -s /usr/local/lib/libtk$(TCLTK_VERSION).dylib /usr/local/lib/libtk.dylib

@@ -163,7 +163,7 @@ static mtx_dispersive_dline_matrix(t_mtx_dispersive_dline *x, t_symbol *s,
   
   if (channels*samples>argc) {
      post("mtx_dispersive_dline: corrupt matrix passed");
-     return;
+     return 0;
   }
   post("%d samples, %d channels",samples,channels);
 

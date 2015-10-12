@@ -157,11 +157,11 @@ install_d_fat:
 
 d_fat: expr.d_fat expr~.d_fat fexpr~.d_fat
 .c.d_fat_o:
-	$(CC) -g $(MACOSXCFLAGS) $(MACOSXINCLUDE)  -arch i386 -arch ppc \
+	$(CC) -g $(MACOSXCFLAGS) $(MACOSXINCLUDE)  -arch i386 \
 	-o $*.d_fat_o -c $*.c
 
 expr.d_fat: $(MACOSXOBJ)
-	$(CC) -arch i386 -arch ppc -bundle -undefined suppress  -flat_namespace \
+	$(CC) -arch i386 -bundle -undefined suppress  -flat_namespace \
 		-o expr.d_fat $(MACOSXOBJ)  -lm
 	rm -f ../expr.d_fat
 	-ln -s expr~/expr.d_fat ..

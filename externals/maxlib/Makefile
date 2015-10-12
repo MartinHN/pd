@@ -103,10 +103,10 @@ ifeq ($(UNAME),Darwin)
     SHARED_EXTENSION = dylib
     OS = macosx
     PD_PATH = /Applications/Pd-extended.app/Contents/Resources
-    OPT_CFLAGS = -ftree-vectorize -ftree-vectorizer-verbose=2 -fast
+    OPT_CFLAGS = -ftree-vectorize -fast # -ftree-vectorizer-verbose=2 -fast
 # build universal 32-bit on 10.4 and 32/64 on newer
     ifeq ($(shell uname -r | sed 's|\([0-9][0-9]*\)\.[0-9][0-9]*\.[0-9][0-9]*|\1|'), 8)
-      FAT_FLAGS = -arch ppc -arch i386 -mmacosx-version-min=10.4
+      FAT_FLAGS = -arch i386 -mmacosx-version-min=10.4
     else
       SOURCES += $(SOURCES_iphoneos)
 # Starting with Xcode 4.0, the PowerPC compiler is not installed by default

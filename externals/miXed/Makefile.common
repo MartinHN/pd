@@ -57,13 +57,13 @@ LFLAGS = -shared -L$(PD_DIR) -L$(PD_DIR)/../bin/ -lpd
 endif
 
 ifeq ($(OS_NAME),Darwin)
-CC = gcc
+CC = gcc -arch i386 
 X_SUFFIX = pd_darwin
 DEFINES = -DUNIX -DMACOSX
 OPT_CFLAGS = -O2 -funroll-loops -fomit-frame-pointer
 # perhaps "-undefined suppress" would be a better choice, when we go dynamic
 # with our own common code? (not likely to happen soon...)
-LFLAGS = -bundle -bundle_loader $(PD_DIR)/../bin/pd -flat_namespace
+LFLAGS = -bundle -bundle_loader $(PD_DIR)/../bin/pd -flat_namespace -undefined suppress
 endif
 
 SHARED_DIR = $(ROOT_DIR)/shared

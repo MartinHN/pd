@@ -1,7 +1,9 @@
+#include "m_pd.h"
+
+
 #ifndef __APPLE__
 #include "ladspa.h"
-#endif
-#include "m_pd.h"
+
 
 typedef struct
 {
@@ -27,6 +29,9 @@ typedef struct
 
 } Plugin_Tilde_Ladspa;
 
+#endif
+
+
 typedef struct
 {
     /* Pd's way of object-oriented programming */
@@ -35,12 +40,13 @@ typedef struct
     /* Access to LADSPA/VST plugins */
     void*		plugin_library;
     const char*		plugin_library_filename; /* only for diagnostics */
+    #ifndef __APPLE__
     union {
 
 	Plugin_Tilde_Ladspa	ladspa;
 
     }			plugin;
-
+	#endif
     /* Plugin information */
     unsigned		num_audio_inputs;
     unsigned		num_audio_outputs;
@@ -111,6 +117,8 @@ static void	plugin_tilde_set_control_input_by_index (Pd_Plugin_Tilde* x,
 						unsigned index_,
 						float value);
 
+
+#ifndef __APPLE__
 /* subroutines to wrap the LADSPA interface */
 const char*	plugin_tilde_ladspa_search_plugin (Pd_Plugin_Tilde* x,
 						   const char* name);
@@ -153,3 +161,4 @@ static int	plugin_tilde_ladspa_alloc_outofplace_memory (Pd_Plugin_Tilde* x, unsi
 static void	plugin_tilde_ladspa_free_outofplace_memory (Pd_Plugin_Tilde* x);
 static int	plugin_tilde_ladspa_alloc_control_memory (Pd_Plugin_Tilde* x);
 static void	plugin_tilde_ladspa_free_control_memory (Pd_Plugin_Tilde* x);
+#endif

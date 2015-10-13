@@ -58,7 +58,7 @@ ifeq ($(UNAME),Darwin)
     CXXSOURCES += $(CXXSOURCES_Darwin)
     EXTENSION = pd_darwin
     OS = macosx
-    OPT_CFLAGS = -ftree-vectorize -ftree-vectorizer-verbose=2 -fast
+    OPT_CFLAGS = -ftree-vectorize # -fast
     FAT_FLAGS =  -arch i386 -arch x86_64 -mmacosx-version-min=10.4
     CFLAGS += $(FAT_FLAGS) -fPIC -I/sw/include
     LDFLAGS += $(FAT_FLAGS) -bundle -undefined dynamic_lookup -L/sw/lib

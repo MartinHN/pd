@@ -113,7 +113,7 @@ ifeq ($(UNAME),Darwin)
       ifeq ($(wildcard /usr/llvm-gcc-4.2/libexec/gcc/powerpc*), )
         FAT_FLAGS = -arch i386 -arch x86_64 -mmacosx-version-min=10.5
       else
-        FAT_FLAGS = -arch ppc -arch i386 -arch x86_64 -mmacosx-version-min=10.4
+        FAT_FLAGS =  -arch i386 -arch x86_64 -mmacosx-version-min=10.4
       endif
     endif
     ALL_CFLAGS += $(FAT_FLAGS) -fPIC -I/sw/include

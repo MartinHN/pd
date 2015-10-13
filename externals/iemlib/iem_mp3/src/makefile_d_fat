@@ -15,7 +15,7 @@ CFLAGS =-O2 -Wall -W -Wshadow -Wstrict-prototypes \
 
 LFLAGS = -bundle -undefined suppress -flat_namespace
 
-ARCH_FLAGS=-arch i386 -arch ppc
+ARCH_FLAGS=-arch i386 
 
 # the sources
 

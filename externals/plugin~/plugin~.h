@@ -1,4 +1,6 @@
+#ifndef __APPLE__
 #include "ladspa.h"
+#endif
 #include "m_pd.h"
 
 typedef struct

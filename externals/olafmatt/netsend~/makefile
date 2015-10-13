@@ -56,7 +56,7 @@ pd_darwin: netreceive~.pd_darwin netsend~.pd_darwin
 
 .SUFFIXES: .pd_darwin
 
-DARWINFATFLAGS = -arch ppc -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+DARWINFATFLAGS =  -arch i386 -isysroot /Developer/SDKs/MacOSX10.4u.sdk
 
 DARWINCFLAGS = -DPD -DUNIX -DMACOSX -DHAVE_LRINT -DHAVE_LRINTF -fast -fPIC \
     -Wall -W -Wno-unused -Wstrict-prototypes \

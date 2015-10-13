@@ -4,14 +4,18 @@
  * For information on usage and redistribution, and for a DISCLAIMER OF ALL
  * WARRANTIES, see the file, "LICENSE.txt," in this distribution.  */
 
+void Clip_tilde_setup(void);
+void Line_tilde_setup(void);
+void Scope_tilde_setup(void);
+void Snapshot_tilde_setup(void);
 void abs_tilde_setup(void);
 void acos_tilde_setup(void);
 void acosh_tilde_setup(void);
 void allpass_tilde_setup(void);
 void asin_tilde_setup(void);
 void asinh_tilde_setup(void);
-void atan2_tilde_setup(void);
 void atan_tilde_setup(void);
+void atan2_tilde_setup(void);
 void atanh_tilde_setup(void);
 void average_tilde_setup(void);
 void avg_tilde_setup(void);
@@ -25,7 +29,6 @@ void capture_tilde_setup(void);
 void cartopol_tilde_setup(void);
 void change_tilde_setup(void);
 void click_tilde_setup(void);
-void Clip_tilde_setup(void);
 void comb_tilde_setup(void);
 void cosh_tilde_setup(void);
 void cosx_tilde_setup(void);
@@ -40,7 +43,6 @@ void frameaccum_tilde_setup(void);
 void framedelta_tilde_setup(void);
 void index_tilde_setup(void);
 void kink_tilde_setup(void);
-void Line_tilde_setup(void);
 void linedrive_setup(void);
 void log_tilde_setup(void);
 void lookup_tilde_setup(void);
@@ -67,11 +69,9 @@ void record_tilde_setup(void);
 void reson_tilde_setup(void);
 void sah_tilde_setup(void);
 void sampstoms_tilde_setup(void);
-void Scope_tilde_setup(void);
 void sinh_tilde_setup(void);
 void sinx_tilde_setup(void);
 void slide_tilde_setup(void);
-void Snapshot_tilde_setup(void);
 void spike_tilde_setup(void);
 void svf_tilde_setup(void);
 void tanh_tilde_setup(void);
@@ -85,14 +85,18 @@ void zerox_tilde_setup(void);
 
 void allsickles_setup(void)
 {
+    Clip_tilde_setup();
+    Line_tilde_setup();
+    Scope_tilde_setup();
+    Snapshot_tilde_setup();
     abs_tilde_setup();
     acos_tilde_setup();
     acosh_tilde_setup();
     allpass_tilde_setup();
     asin_tilde_setup();
     asinh_tilde_setup();
-    atan2_tilde_setup();
     atan_tilde_setup();
+    atan2_tilde_setup();
     atanh_tilde_setup();
     average_tilde_setup();
     avg_tilde_setup();
@@ -106,7 +110,6 @@ void allsickles_setup(void)
     cartopol_tilde_setup();
     change_tilde_setup();
     click_tilde_setup();
-    Clip_tilde_setup();
     comb_tilde_setup();
     cosh_tilde_setup();
     cosx_tilde_setup();
@@ -121,7 +124,6 @@ void allsickles_setup(void)
     framedelta_tilde_setup();
     index_tilde_setup();
     kink_tilde_setup();
-    Line_tilde_setup();
     linedrive_setup();
     log_tilde_setup();
     lookup_tilde_setup();
@@ -148,11 +150,9 @@ void allsickles_setup(void)
     reson_tilde_setup();
     sah_tilde_setup();
     sampstoms_tilde_setup();
-    Scope_tilde_setup();
     sinh_tilde_setup();
     sinx_tilde_setup();
     slide_tilde_setup();
-    Snapshot_tilde_setup();
     spike_tilde_setup();
     svf_tilde_setup();
     tanh_tilde_setup();

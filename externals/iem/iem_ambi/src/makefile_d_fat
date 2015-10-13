@@ -36,12 +36,12 @@ clean:
 
 all: $(OBJ)
 	@echo :: $(OBJ)
-	$(CC) -arch i386 -arch ppc $(LFLAGS) -o $(TARGET) *.o
+	$(CC) -arch i386  $(LFLAGS) -o $(TARGET) *.o
 	strip -S -x $(TARGET)
 	mv $(TARGET) ..
 
 $(OBJ) : %.o : %.c
-	$(CC) -arch i386 -arch ppc $(CFLAGS) $(INCLUDE) -c -o $*.o $*.c
+	$(CC) -arch i386  $(CFLAGS) $(INCLUDE) -c -o $*.o $*.c
 
 
 

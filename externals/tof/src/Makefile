@@ -83,9 +83,9 @@ LIBS = -lm
 
 ifeq ($(OS_NAME),darwin)
 # 10.4 Tiger
-  FAT_FLAGS = -arch ppc -arch ppc64 -arch i386
+  FAT_FLAGS =  64 -arch i386
 # 10.5 Leopard
-#  FAT_FLAGS = -arch ppc -arch ppc7400 -arch ppc64 -arch i386 -arch x86_64
+#  FAT_FLAGS =  7400 64 -arch i386 -arch x86_64
   CFLAGS += -I/sw/include -DMACOSX -DUNIX -Dunix -DDL_OPEN -arch $(ARCH)
   LDFLAGS += -bundle -bundle_loader $(PD_BIN)/bin/pd -undefined dynamic_lookup \
 		-weak_framework Carbon -arch $(ARCH)

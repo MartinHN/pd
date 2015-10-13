@@ -22,7 +22,7 @@ LIBOSC = ../libOSC/libOSC.a
 
 CFLAGS = -g -arch i386 -O2 -DUNIX -Wall -Wimplicit -Wunused -Wmissing-prototypes -O3  -I../libOSC -I../../pd/src -I../../../pd/src -I../src
 INCLUDES = -I../libOSC -I../../pd/src -I../../../pd/src -I../src
-LDFLAGS =  -arch i386 -bundle -bundle_loader ../../../pd/bin/pd -flat_namespace 
+LDFLAGS =  -arch i386 -bundle -bundle_loader ../../../pd/bin/pd -flat_namespace -undefined suppress 
 
 prefix=/usr/local
 
